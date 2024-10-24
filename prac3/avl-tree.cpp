@@ -53,7 +53,7 @@ Node* AVL_TREE::delete_node(Node* root, int val) {
         if (root->left == nullptr) {
             Node* temp = root->right;
             delete root;
-            return temp;  
+            return temp;
         } else if (root->right == nullptr) {
             Node* temp = root->left;
             delete root;
@@ -78,7 +78,6 @@ Node* AVL_TREE::find_min(Node* root) {
 
 void AVL_TREE::pre(Node * root){
     if (root == nullptr){
-        cout << "EMPTY" << endl;
         return;
     }
     Node * temp = root;
@@ -89,25 +88,23 @@ void AVL_TREE::pre(Node * root){
 
 void AVL_TREE::post(Node * root){
     if (root == nullptr){
-        cout << "EMPTY" << endl;
         return;
     }
     Node * temp = root;
     
-    pre(temp->left);
-    pre(temp->right);
+    post(temp->left);
+    post(temp->right);
 
     cout << temp->val << " ";
 }
 
 void AVL_TREE::in(Node * root){
     if (root == nullptr){
-        cout << "EMPTY" << endl;
         return;
     }
     Node * temp = root;
     
-    pre(temp->left);
+    in(temp->left);
     cout << temp->val << " ";
-    pre(temp->right);
+    in(temp->right);
 }

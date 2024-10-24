@@ -12,6 +12,9 @@ class AVL_TREE {
         Node * get_root(){
             return root;
         }
+        void set_root(Node * root){
+            this->root = root;
+        }
         AVL_TREE(){root = nullptr;};
         Node * insert_node(int val);
         Node * delete_node(Node* root, int val);
